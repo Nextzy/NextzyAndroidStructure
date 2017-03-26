@@ -12,6 +12,6 @@ public class SampleApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        NextworkWebkitCookieJar.getInstance().initCompat(getApplicationContext());
+        NextworkWebkitCookieJar.getInstance().init(getApplicationContext());
     }
 }
