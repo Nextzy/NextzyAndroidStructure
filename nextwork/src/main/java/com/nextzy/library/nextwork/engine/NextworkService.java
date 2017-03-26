@@ -1,5 +1,7 @@
 package com.nextzy.library.nextwork.engine;
 
+import android.util.Log;
+
 import com.google.gson.GsonBuilder;
 import com.nextzy.library.nextwork.BuildConfig;
 import com.nextzy.library.nextwork.cookie.NextworkWebkitCookieJar;
@@ -36,6 +38,7 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
  */
 
 public abstract class NextworkService<T> {
+    private static final String TAG = NextworkService.class.getSimpleName();
     private String baseUrl;
     private boolean logger = false;
     private boolean useCookie = true;
@@ -214,7 +217,15 @@ public abstract class NextworkService<T> {
     }
 
     protected CookieJar getDefaultCookieJar() {
-        return isUseCookie() ? NextworkWebkitCookieJar.getInstance() : CookieJar.NO_COOKIES;
+        if (isUseCookie() && !NextworkWebkitCookieJar.getInstance().isInitialized()) {
+            Log.e(TAG, "********************************************************************************************************************************");
+            Log.e(TAG, "To use cookie, you need to call NextworkWebkitCookieJar.getInstance().init(getApplicationContext()); in application class.");
+            Log.e(TAG, "********************************************************************************************************************************");
+        }
+        if (isUseCookie() && NextworkWebkitCookieJar.getInstance().isInitialized()) {
+            return NextworkWebkitCookieJar.getInstance();
+        }
+        return CookieJar.NO_COOKIES;
     }
 
     protected long getDefaultTimeout() {

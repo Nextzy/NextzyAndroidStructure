@@ -57,12 +57,21 @@ public class NextworkWebkitCookieJar extends CookieManager implements CookieJar 
      *
      * @param context Context
      */
-    public void initCompat(Context context) {
+    public void init(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             //this is for some specific devices below lollipop
             //http://stackoverflow.com/questions/16107892/cookie-manager-causing-fatal-signal-11
+
             CookieSyncManager.createInstance(context);
         }
+    }
+
+    public boolean isInitialized() {
+        try {
+            return CookieSyncManager.getInstance() != null;
+        } catch (IllegalStateException ignored) {
+        }
+        return false;
     }
 
     @Override
