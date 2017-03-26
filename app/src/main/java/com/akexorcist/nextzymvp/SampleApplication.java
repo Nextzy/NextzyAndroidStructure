@@ -2,6 +2,8 @@ package com.akexorcist.nextzymvp;
 
 import android.app.Application;
 
+import com.nextzy.library.box.Box;
+import com.nextzy.library.box.BoxConfiguration;
 import com.nextzy.library.nextwork.cookie.NextworkWebkitCookieJar;
 
 /**
@@ -13,5 +15,6 @@ public class SampleApplication extends Application {
     public void onCreate() {
         super.onCreate();
         NextworkWebkitCookieJar.getInstance().init(getApplicationContext());
+        BoxConfiguration.init(getApplicationContext(), Box.getInstance().getConfigBuilder());
     }
 }
