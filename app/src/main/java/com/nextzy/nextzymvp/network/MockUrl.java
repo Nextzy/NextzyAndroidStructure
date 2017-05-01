@@ -1,4 +1,4 @@
-package com.akexorcist.nextzymvp.network;
+package com.nextzy.nextzymvp.network;
 
 /**
  * Created by TheKhaeng on 11/15/2016.

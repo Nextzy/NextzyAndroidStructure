@@ -1,7 +1,7 @@
-package com.akexorcist.nextzymvp.network;
+package com.nextzy.nextzymvp.network;
 
-import com.akexorcist.nextzymvp.network.response.SomeResult;
 import com.nextzy.library.nextwork.engine.BackgroundThreadTransformer;
+import com.nextzy.nextzymvp.network.response.SomeResult;
 
 import io.reactivex.Single;
 

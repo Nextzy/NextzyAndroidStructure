@@ -1,4 +1,4 @@
-package com.akexorcist.nextzymvp;
+package com.nextzy.nextzymvp;
 
 import android.app.Application;
 

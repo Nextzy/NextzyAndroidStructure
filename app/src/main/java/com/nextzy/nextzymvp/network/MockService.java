@@ -1,6 +1,7 @@
-package com.akexorcist.nextzymvp.network;
+package com.nextzy.nextzymvp.network;
 
 import com.nextzy.library.nextwork.engine.NextworkService;
+import com.nextzy.nextzymvp.network.MockApi;
 
 import okhttp3.Request;
 
