@@ -1,1 +1,1 @@
-include ':app', ':nextwork', ':box'
+include ':app', ':nextwork', ':box', ':core'
